@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerCtrl : MonoBehaviour
 {
     public float speed = 20.0f;
-    public float jumpSpeed = 8.0f;
-    public float gravity = 7.8f;
+    public float jumpSpeed = 20.0f;
+    public float gravity = 20.0f;
 
     private CharacterController controller;
     private Vector3 velocity, forward, right;
