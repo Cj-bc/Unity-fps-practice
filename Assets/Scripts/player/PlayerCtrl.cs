@@ -6,7 +6,7 @@ public class PlayerCtrl : MonoBehaviour
 {
     public float baseSpeed = 20.0f;
     public float jumpSpeed = 20.0f;
-    public float gravity = 20.0f;
+    public float gravity = 30.0f;
     public float onAirMovementSpeed = 10.0f;
 
     private CharacterController controller;
