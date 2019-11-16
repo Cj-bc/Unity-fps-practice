@@ -28,15 +28,8 @@ public class PlayerCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(keyConf[Config.UsedKeysList.Crouch]))
-            status.crouch = true;
-        else
-            status.crouch = false;
-
-        if (controller.isGrounded)
-            status.speed = baseSpeed;
-        else
-            status.speed = onAirMovementSpeed;
+        status.crouch  = Input.GetKey(keyConf[Config.UsedKeysList.Crouch]);
+        status.speed   = controller.isGrounded ? baseSpeed : onAirMovementSpeed;
 
         forward = transform.transform.forward * Input.GetAxis("Vertical");  // W S
         right = transform.transform.right * Input.GetAxis("Horizontal");  // A D
