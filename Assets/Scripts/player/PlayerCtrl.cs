@@ -24,6 +24,11 @@ public class PlayerCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey("left shift")) // replace this by adding new virtual axis
+            status.crouch = true;
+        else
+            status.crouch = false;
+
         if (controller.isGrounded)
             status.speed = baseSpeed;
         else
