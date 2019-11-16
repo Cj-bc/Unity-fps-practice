@@ -11,6 +11,8 @@ public class PlayerCtrl : MonoBehaviour
 
     private CharacterController controller;
     private PlayerStatus status;
+    private Config config;
+    private Dictionary<Config.UsedKeysList, KeyCode> keyConf;
     private Vector3 velocity, forward, right;
     private float prev_up = 0.0f;
 
@@ -19,6 +21,8 @@ public class PlayerCtrl : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         status = GetComponent<PlayerStatus>();
+        config = FindObjectOfType(typeof(Config)) as Config;
+        keyConf = config.keyConfig;
     }
 
     // Update is called once per frame
