@@ -28,7 +28,7 @@ public class PlayerCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("left shift")) // replace this by adding new virtual axis
+        if (Input.GetKey(keyConf[Config.UsedKeysList.Crouch]))
             status.crouch = true;
         else
             status.crouch = false;
@@ -44,7 +44,7 @@ public class PlayerCtrl : MonoBehaviour
         velocity = transform.TransformVector(forward + right) * status.speed;
         velocity.y = prev_up;
 
-        if (controller.isGrounded&&Input.GetButton("Jump"))
+        if (controller.isGrounded&&Input.GetKey(keyConf[Config.UsedKeysList.Jump]))
             velocity.y = jumpSpeed;
 
         velocity.y -= gravity * Time.deltaTime;
