@@ -13,15 +13,13 @@ public class Config : MonoBehaviour
         , ADS
         , Reload
     }
-    public Dictionary<UsedKeysList, string> defaultConfig;
+    public Dictionary<UsedKeysList, KeyCode> defaultConfig;
 
     // I want to change this phase to load config from somewhere, like yaml
     void Awake() {
-        defaultConfig.Add(UsedKeysList.Crouch, "left shift" );
-        defaultConfig.Add(UsedKeysList.Jump  , "Jump"       );
-        defaultConfig.Add(UsedKeysList.Right , "Horizontal" );
-        defaultConfig.Add(UsedKeysList.Foward, "Vertical"   );
-        defaultConfig.Add(UsedKeysList.Fire  , "Fire1"      );
-        defaultConfig.Add(UsedKeysList.Reload, "r"          );
+        defaultConfig.Add(UsedKeysList.Crouch, KeyCode.LeftShift );
+        defaultConfig.Add(UsedKeysList.Jump  , KeyCode.Space );
+        defaultConfig.Add(UsedKeysList.Fire  , KeyCode.Mouse1 );
+        defaultConfig.Add(UsedKeysList.Reload, KeyCode.R );
     }
 }
