@@ -13,7 +13,8 @@ public class Config : MonoBehaviour
         , ADS
         , Reload
     }
-    public Dictionary<UsedKeysList, KeyCode> keyConfig;
+
+    public Dictionary<UsedKeysList, KeyCode> keyConfig = new Dictionary<UsedKeysList, KeyCode>();
 
     // I want to change this phase to load config from somewhere, like yaml
     void Awake() {
