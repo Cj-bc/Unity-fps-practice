@@ -13,7 +13,7 @@ public class PlayerCtrl : MonoBehaviour
     private PlayerStatus status;
     private Config config;
     private Dictionary<Config.UsedKeysList, KeyCode> keyConf;
-    private Vector3 velocity, forward, right;
+    private Vector3 velocity;
     private float prev_up = 0.0f;
 
     // Start is called before the first frame update
@@ -31,16 +31,16 @@ public class PlayerCtrl : MonoBehaviour
         status.crouch  = Input.GetKey(keyConf[Config.UsedKeysList.Crouch]);
         status.speed   = controller.isGrounded ? baseSpeed : onAirMovementSpeed;
 
-        forward = transform.transform.forward * Input.GetAxis("Vertical");  // W S
-        right = transform.transform.right * Input.GetAxis("Horizontal");  // A D
-        prev_up = velocity.y;
-        velocity = transform.TransformVector(forward + right) * status.speed;
-        velocity.y = prev_up;
+        velocity = transform.TransformVector(new Vector3( Input.GetAxis("Horizontal") * status.speed
+                                                        , velocity.y
+                                                        , Input.GetAxis("Vertical")   * status.speed)
+                                            );
 
         if (controller.isGrounded&&Input.GetKey(keyConf[Config.UsedKeysList.Jump]))
             velocity.y = jumpSpeed;
 
         velocity.y -= gravity * Time.deltaTime;
+
         controller.Move(velocity * Time.deltaTime);
     }
 }
