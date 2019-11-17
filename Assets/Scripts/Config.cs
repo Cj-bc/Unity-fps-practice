@@ -17,11 +17,13 @@ public class Config : MonoBehaviour
 
     public Dictionary<UsedKeysList, KeyCode> keyConfig = new Dictionary<UsedKeysList, KeyCode>();
     public CameraConfig cameraConfig;
+    private bool _isSet = false; // True if custom configuration is given;
 
 
     // I want to change this phase to load config from somewhere, like yaml
     void Awake() {
-        setDefault();
+        if (!_isSet)
+            setDefault();
     }
 
     void setDefault() {
