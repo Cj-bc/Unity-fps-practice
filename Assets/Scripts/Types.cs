@@ -1,6 +1,6 @@
 public class Types {
     public enum CameraView {
-          FPV
+          FPP
         , TPP
         , FreeCam
     }

@@ -42,17 +42,13 @@ public class Config : MonoBehaviour
 }
 
 
-
-
-
-
 public class CameraConfig {
     public CameraView mode;
     public Vector3 tppOffset;
 
     public static CameraConfig defaultConfig() {
         CameraConfig ret = new CameraConfig();
-        ret.mode = CameraView.FPV;
+        ret.mode = CameraView.FPP;
         ret.tppOffset = new Vector3(-4, 15, -15);
         return ret;
     }
