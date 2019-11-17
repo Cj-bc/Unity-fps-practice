@@ -10,16 +10,25 @@ public class CameraCtrl : MonoBehaviour
 
     private GameObject player;
     private Config config;
+    private PlayerStatus plStatus;
 
     private CameraView prev_camMode;
-    private Vector3 offset;
+    private Vector3 offset = new Vector3(0.0f, 12.0f, 1.03f);
+    private Vector3 crouchOffset = new Vector3(0, -5, 0);
+    private float crouchTime;
+    const float crouchTimeLimit = 1;
+
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        plStatus = player.GetComponent<PlayerStatus>();
         config = FindObjectOfType(typeof(Config)) as Config;
         mode = config.cameraConfig.mode;
         prev_camMode = config.cameraConfig.mode;
+
+        crouchTime = 0.0f;
     }
 
     // Update is called once per frame
@@ -30,7 +39,15 @@ public class CameraCtrl : MonoBehaviour
             prev_camMode = mode;
         }
 
-        transform.SetPositionAndRotation(player.transform.position + offset, player.transform.rotation);
+        if (plStatus.crouch)
+            crouchTime = Mathf.Min(crouchTime+0.05f, crouchTimeLimit);
+        else
+            crouchTime = Mathf.Max(crouchTime-0.05f, 0.0f);
+
+        transform.SetPositionAndRotation(player.transform.position + offset + (crouchOffset * crouchTime)
+                                        , player.transform.rotation);
+
+
         // TODO: Change angle here
         // What I should do here are:
         //   - Change position to player's position + offset
