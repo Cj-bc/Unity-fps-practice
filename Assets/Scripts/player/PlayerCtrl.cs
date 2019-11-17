@@ -31,6 +31,8 @@ public class PlayerCtrl : MonoBehaviour
         status.crouch  = Input.GetKey(keyConf[Config.UsedKeysList.Crouch]);
         status.speed   = controller.isGrounded ? baseSpeed : onAirMovementSpeed;
 
+        transform.Rotate(0, Input.GetAxis("Mouse X"), 0);
+
         velocity = transform.TransformVector(new Vector3( Input.GetAxis("Horizontal") * status.speed
                                                         , velocity.y
                                                         , Input.GetAxis("Vertical")   * status.speed)
