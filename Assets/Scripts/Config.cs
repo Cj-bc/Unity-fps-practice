@@ -24,8 +24,20 @@ public class Config : MonoBehaviour
         keyConfig.Add(UsedKeysList.Fire  , KeyCode.Mouse1 );
         keyConfig.Add(UsedKeysList.Reload, KeyCode.R );
         cameraConfig = CameraConfig.defaultConfig();
+
+    void setDefault() {
+        this.keyConfig.Add(UsedKeysList.Crouch, KeyCode.LeftShift );
+        this.keyConfig.Add(UsedKeysList.Jump  , KeyCode.Space );
+        this.keyConfig.Add(UsedKeysList.Fire  , KeyCode.Mouse1 );
+        this.keyConfig.Add(UsedKeysList.Reload, KeyCode.R );
+        this.cameraConfig = CameraConfig.defaultConfig();
     }
 
+    static Config defaultConfig() {
+        Config ret = new Config();
+        ret.setDefault();
+        return ret;
+    }
 }
 
 
