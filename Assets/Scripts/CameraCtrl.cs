@@ -30,8 +30,20 @@ public class CameraCtrl : MonoBehaviour
             prev_camMode = mode;
         }
 
+        transform.SetPositionAndRotation(player.transform.position + offset, player.transform.rotation);
         // TODO: Change angle here
-        transform.SetPositionAndRotation(player.transform.position + offset, Quaternion.identity);
+        // What I should do here are:
+        //   - Change position to player's position + offset
+        //   - rotate camera if player rotate.
+        //
+        // TPP support is not so easy(4 me), because I should use Quaternion or matrix
+        // And Important thing here is: are there any reason to add TPP?
+        // (Actually I don't play TPS lol)
+        // v ----- v
+        // Vector2 cam_pos = new Vector2(offset.x, offset.z);
+        // Vector3 n_pos = offset * Mathf.Cos(-player.transform.rotation.y);
+        // transform.SetPositionAndRotation(player.transform.position + n_pos, player.transform.rotation);
+        // ^ ----- ^
     }
 
 
