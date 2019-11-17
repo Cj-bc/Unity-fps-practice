@@ -4,4 +4,13 @@ public class Types {
         , TPP
         , FreeCam
     }
+
+    public struct Sensitivity {
+        public float X {get; }
+        public float Y {get; }
+
+        public Sensitivity(float x, float y) { X = x; Y = y;}
+    }
 }
+
+
