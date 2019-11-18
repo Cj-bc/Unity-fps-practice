@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Types;
 
+// Camera should be a children of player.
 public class CameraCtrl : MonoBehaviour
 {
 
@@ -44,23 +45,9 @@ public class CameraCtrl : MonoBehaviour
         else
             crouchTime = Mathf.Max(crouchTime-0.05f, 0.0f);
 
-        transform.SetPositionAndRotation(player.transform.position + offset + (crouchOffset * crouchTime)
-                                        , player.transform.rotation);
 
 
-        // TODO: Change angle here
-        // What I should do here are:
-        //   - Change position to player's position + offset
-        //   - rotate camera if player rotate.
-        //
-        // TPP support is not so easy(4 me), because I should use Quaternion or matrix
-        // And Important thing here is: are there any reason to add TPP?
-        // (Actually I don't play TPS lol)
-        // v ----- v
-        // Vector2 cam_pos = new Vector2(offset.x, offset.z);
-        // Vector3 n_pos = offset * Mathf.Cos(-player.transform.rotation.y);
-        // transform.SetPositionAndRotation(player.transform.position + n_pos, player.transform.rotation);
-        // ^ ----- ^
+        transform.localPosition = offset + (crouchOffset * crouchTime);
     }
 
 
