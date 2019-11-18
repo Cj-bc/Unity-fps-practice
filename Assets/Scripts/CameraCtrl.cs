@@ -20,9 +20,7 @@ public class CameraCtrl : MonoBehaviour
     const float crouchTimeLimit = 1;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         player = GameObject.FindWithTag("Player");
         plStatus = player.GetComponent<PlayerStatus>();
         config = FindObjectOfType(typeof(Config)) as Config;
@@ -32,19 +30,14 @@ public class CameraCtrl : MonoBehaviour
         crouchTime = 0.0f;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if (prev_camMode != mode) {
             switchCamera(mode);
             prev_camMode = mode;
         }
 
-        if (plStatus.crouch)
-            crouchTime = Mathf.Min(crouchTime+0.05f, crouchTimeLimit);
-        else
-            crouchTime = Mathf.Max(crouchTime-0.05f, 0.0f);
-
+        crouchTime = plStatus.crouch ? Mathf.Min(crouchTime+0.05f, crouchTimeLimit)
+                                     : Mathf.Max(crouchTime-0.05f, 0.0f);
 
 
         transform.localPosition = offset + (crouchOffset * crouchTime);
