@@ -48,11 +48,13 @@ public class Config : MonoBehaviour
 public class CameraConfig {
     public CameraView mode;
     public Vector3 tppOffset;
+    public bool flipY;
 
     public static CameraConfig defaultConfig() {
         CameraConfig ret = new CameraConfig();
         ret.mode = CameraView.FPP;
         ret.tppOffset = new Vector3(-4, 15, -15);
+        ret.flipY = false;
         return ret;
     }
 }

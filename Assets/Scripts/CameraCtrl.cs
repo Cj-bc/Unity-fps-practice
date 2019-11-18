@@ -18,6 +18,8 @@ public class CameraCtrl : MonoBehaviour
     private Vector3 crouchOffset = new Vector3(0, -5, 0);
     private float crouchTime;
     const float crouchTimeLimit = 1;
+    const float MAX_ANGLE = 90.0f;
+    const float MIN_ANGLE = -90.0f;
 
 
     void Start() {
@@ -41,6 +43,13 @@ public class CameraCtrl : MonoBehaviour
 
 
         transform.localPosition = offset + (crouchOffset * crouchTime);
+
+        float y_flip = config.cameraConfig.flipY ? -1 : 1;
+        float rot = Mathf.Clamp(transform.localEulerAngles.x - y_flip * (Input.GetAxis("Mouse Y") * config.sensitivity.Y)
+                               , MIN_ANGLE
+                               , MAX_ANGLE
+                               );
+        transform.localEulerAngles = new Vector3(rot, 0, 0);
     }
 
 
