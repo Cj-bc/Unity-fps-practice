@@ -12,7 +12,7 @@ public class CameraCtrl : MonoBehaviour
     private GameObject player;
     private Config config;
     private PlayerStatus plStatus;
-    private Camera camera;
+    private Camera cameraComponent;
 
     private CameraView prev_camMode;
     private Vector3 offset = new Vector3(0.0f, 12.0f, 1.03f);
@@ -27,7 +27,7 @@ public class CameraCtrl : MonoBehaviour
         // Get objects/components
         player = GameObject.FindWithTag("Player");
         plStatus = player.GetComponent<PlayerStatus>();
-        camera = GetComponent<Camera>();
+        cameraComponent = GetComponent<Camera>();
         config = FindObjectOfType(typeof(Config)) as Config;
 
         // Initialize CameraCtrl
@@ -35,7 +35,7 @@ public class CameraCtrl : MonoBehaviour
         prev_camMode = config.cameraConfig.mode;
 
         // Initialize Camera
-        camera.fieldOfView = config.cameraConfig.fov;
+        cameraComponent.fieldOfView = config.cameraConfig.fov;
 
         crouchTime = 0.0f;
     }
