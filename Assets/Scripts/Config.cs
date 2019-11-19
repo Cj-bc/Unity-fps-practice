@@ -34,7 +34,7 @@ public class Config : MonoBehaviour
         this.keyConfig.Add(UsedKeysList.Fire  , KeyCode.Mouse1 );
         this.keyConfig.Add(UsedKeysList.Reload, KeyCode.R );
         this.cameraConfig = CameraConfig.defaultConfig();
-        this.sensitivity = new Sensitivity(10, 10);
+        this.sensitivity = new Sensitivity(10, 4);
     }
 
     static Config defaultConfig() {
