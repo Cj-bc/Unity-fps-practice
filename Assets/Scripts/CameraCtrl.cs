@@ -55,7 +55,7 @@ public class CameraCtrl : MonoBehaviour
         // So I should convert them into -180~180 range so that it's easier to use Mathf.Clamp.
         float xAngleAllowingNegative = 180 < transform.localEulerAngles.x ? -(360 - transform.localEulerAngles.x)
                                                                           : transform.localEulerAngles.x;
-        float rot = Clamp(xAngleAllowingNegative - y_flip * (Input.GetAxis("Mouse Y") * config.sensitivity.Y)
+        float rot = Mathf.Clamp(xAngleAllowingNegative - y_flip * (Input.GetAxis("Mouse Y") * config.sensitivity.Y)
                          , MIN_ANGLE
                          , MAX_ANGLE
                          );
