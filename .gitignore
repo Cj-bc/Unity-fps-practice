@@ -114,3 +114,5 @@ tags
 [._]*.un~
 
 
+# --- Custom gitignore settings
+Assets/Free
