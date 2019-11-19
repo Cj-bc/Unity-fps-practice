@@ -19,7 +19,7 @@ public class PlayerAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("Speed", status.speed);
         animator.SetBool("Crouch", status.crouch);
+        animator.SetFloat("Speed", status.velocity.magnitude);
     }
 }
