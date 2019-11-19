@@ -15,6 +15,7 @@ public class PlayerCtrl : MonoBehaviour
     private Dictionary<Config.UsedKeysList, KeyCode> keyConf;
     private Vector3 velocity;
     private float prev_up = 0.0f;
+    private float speed;
 
     // Start is called before the first frame update
     void Start()
@@ -29,13 +30,13 @@ public class PlayerCtrl : MonoBehaviour
     void Update()
     {
         status.crouch  = Input.GetKey(keyConf[Config.UsedKeysList.Crouch]);
-        status.speed   = controller.isGrounded ? baseSpeed : onAirMovementSpeed;
+        speed   = controller.isGrounded ? baseSpeed : onAirMovementSpeed;
 
         transform.Rotate(0, Input.GetAxis("Mouse X") * config.sensitivity.X, 0);
 
-        velocity = transform.TransformVector(new Vector3( Input.GetAxis("Horizontal") * status.speed
+        velocity = transform.TransformVector(new Vector3( Input.GetAxis("Horizontal") * speed
                                                         , velocity.y
-                                                        , Input.GetAxis("Vertical")   * status.speed)
+                                                        , Input.GetAxis("Vertical")   * speed)
                                             );
 
         if (controller.isGrounded&&Input.GetKey(keyConf[Config.UsedKeysList.Jump]))

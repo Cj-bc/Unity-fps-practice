@@ -6,7 +6,6 @@ public class PlayerStatus : MonoBehaviour
 {
     const int MAX_health = 100;
     public bool crouch = false;
-    public float speed = 0.0f;
     public int health = MAX_health;
 
 
