@@ -530,6 +530,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1507459640}
   - component: {fileID: 1507459639}
+  - component: {fileID: 1507459641}
   m_Layer: 0
   m_Name: the_cat
   m_TagString: Untagged
