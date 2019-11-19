@@ -48,15 +48,17 @@ public class CameraCtrl : MonoBehaviour
 
         crouchTime = plStatus.crouch ? Mathf.Min(crouchTime+0.05f, crouchTimeLimit)
                                      : Mathf.Max(crouchTime-0.05f, 0.0f);
-
-
         transform.localPosition = offset + (crouchOffset * crouchTime);
 
         float y_flip = config.cameraConfig.flipY ? -1 : 1;
-        float rot = Mathf.Clamp(transform.localEulerAngles.x - y_flip * (Input.GetAxis("Mouse Y") * config.sensitivity.Y)
-                               , MIN_ANGLE
-                               , MAX_ANGLE
-                               );
+        // transform.localEulerAngles.{x,y,z} seems to be set between 0 to 360 by Unity, even if we set them to negative value.
+        // So I should convert them into -180~180 range so that it's easier to use Mathf.Clamp.
+        float xAngleAllowingNegative = 180 < transform.localEulerAngles.x ? -(360 - transform.localEulerAngles.x)
+                                                                          : transform.localEulerAngles.x;
+        float rot = Clamp(xAngleAllowingNegative - y_flip * (Input.GetAxis("Mouse Y") * config.sensitivity.Y)
+                         , MIN_ANGLE
+                         , MAX_ANGLE
+                         );
         transform.localEulerAngles = new Vector3(rot, 0, 0);
     }
 
