@@ -15,7 +15,9 @@ public class GameCtrl : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-            Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = Cursor.lockState == CursorLockMode.None
+                               ? CursorLockMode.Locked
+                               : CursorLockMode.None;
     }
 
 }
