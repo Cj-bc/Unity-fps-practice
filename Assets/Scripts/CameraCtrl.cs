@@ -17,10 +17,10 @@ public class CameraCtrl : MonoBehaviour
     private CameraView prev_camMode;
     private Vector3 offset = new Vector3(0.0f, 12.0f, 1.03f);
     private Vector3 crouchOffset = new Vector3(0, -5, 0);
-    private float crouchTime;
+    private float crouchTime = 0.0f;
     const float crouchTimeLimit = 1;
-    const float MAX_ANGLE = 90.0f;
-    const float MIN_ANGLE = -90.0f;
+    const float MAX_ANGLE = 40.0f;
+    const float MIN_ANGLE = -40.0f;
 
 
     void Start() {
