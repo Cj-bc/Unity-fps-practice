@@ -18,6 +18,7 @@ public class Config : MonoBehaviour
     public Dictionary<UsedKeysList, KeyCode> keyConfig = new Dictionary<UsedKeysList, KeyCode>();
     public Sensitivity sensitivity;
     public CameraConfig cameraConfig;
+    public KeyPushMode adsmode;
 
     private bool _isSet = false; // True if custom configuration is given;
 
@@ -35,6 +36,7 @@ public class Config : MonoBehaviour
         this.keyConfig.Add(UsedKeysList.Reload, KeyCode.R );
         this.cameraConfig = CameraConfig.defaultConfig();
         this.sensitivity = new Sensitivity(10, 4);
+        this.adsmode = KeyPushMode.Hold;
     }
 
     static Config defaultConfig() {
