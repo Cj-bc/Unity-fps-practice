@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Types;
 
 public class PlayerCtrl : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class PlayerCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // ========== Moving section
         status.crouch  = Input.GetKey(keyConf[Config.UsedKeysList.Crouch]);
         speed   = controller.isGrounded ? baseSpeed : onAirMovementSpeed;
 
@@ -47,5 +49,25 @@ public class PlayerCtrl : MonoBehaviour
         status.velocity = new Vector3(velocity.x, 0, velocity.z);
 
         controller.Move(velocity * Time.deltaTime);
+
+
+        // ========== Firing section
+        ads(config.adsmode);
+
+    }
+
+    private void ads(KeyPushMode m) {
+        switch(m) {
+          case KeyPushMode.Hold:
+              if (Input.GetKey(keyConf[Config.UsedKeysList.ADS]) && !status.isADS)
+                  status.isADS = true;
+              else if (Input.GetKeyUp(keyConf[Config.UsedKeysList.ADS]) && status.isADS)
+                  status.isADS = false;
+              break;
+          case KeyPushMode.Toggle:
+              if (Input.GetKey(keyConf[Config.UsedKeysList.ADS]))
+                  status.isADS = !status.isADS;
+              break;
+        }
     }
 }

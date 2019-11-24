@@ -6,6 +6,7 @@ public class PlayerStatus : MonoBehaviour
 {
     const int MAX_health = 100;
     public bool crouch = false;
+    public bool isADS = false;
     public Vector3 velocity = new Vector3();
     public int health = MAX_health;
 

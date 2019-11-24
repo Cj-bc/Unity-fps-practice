@@ -34,6 +34,7 @@ public class Config : MonoBehaviour
         this.keyConfig.Add(UsedKeysList.Jump  , KeyCode.Space );
         this.keyConfig.Add(UsedKeysList.Fire  , KeyCode.Mouse0 );
         this.keyConfig.Add(UsedKeysList.Reload, KeyCode.R );
+        this.keyConfig.Add(UsedKeysList.ADS, KeyCode.Mouse1 );
         this.cameraConfig = CameraConfig.defaultConfig();
         this.sensitivity = new Sensitivity(10, 4);
         this.adsmode = KeyPushMode.Hold;
