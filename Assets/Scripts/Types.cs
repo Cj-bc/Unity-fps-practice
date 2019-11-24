@@ -1,4 +1,4 @@
-public class Types {
+namespace Types {
     public enum CameraView {
           FPP
         , TPP

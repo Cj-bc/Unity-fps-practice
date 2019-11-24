@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Types;
+using Types;
 
 public class Config : MonoBehaviour
 {
