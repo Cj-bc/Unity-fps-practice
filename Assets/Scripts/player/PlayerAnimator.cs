@@ -21,5 +21,6 @@ public class PlayerAnimator : MonoBehaviour
     {
         animator.SetFloat("speed", status.velocity.magnitude);
         animator.SetBool("crouch", status.crouch);
+        animator.SetBool("ads", status.isADS);
     }
 }
