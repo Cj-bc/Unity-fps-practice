@@ -11,6 +11,11 @@ namespace Types {
 
         public Sensitivity(float x, float y) { X = x; Y = y;}
     }
+
+    public enum KeyPushMode {
+          Toggle
+        , Hold
+    }
 }
 
 
