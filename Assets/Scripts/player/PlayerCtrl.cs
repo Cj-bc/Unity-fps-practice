@@ -54,6 +54,10 @@ public class PlayerCtrl : MonoBehaviour
         // ========== Firing section
         ads(config.adsmode);
 
+        if (Input.GetKey(keyConf[Config.UsedKeysList.Fire]))
+            if (!status.isFiring) status.isFiring = true;
+        else if (status.isFiring)
+            status.isFiring = false;
     }
 
     private void ads(KeyPushMode m) {
