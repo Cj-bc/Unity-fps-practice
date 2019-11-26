@@ -830,7 +830,7 @@ MonoBehaviour:
   ammos: 10
   guntype: 0
   offset: {x: 0.000003756475, y: 0.002194915, z: 0.001823948}
-  bullet: {fileID: 0}
+  bullet: {fileID: 7138398045236079883, guid: 15fe37f4344374afabc06e0aa9ab4dad, type: 3}
 --- !u!1 &1921135787
 GameObject:
   m_ObjectHideFlags: 0
