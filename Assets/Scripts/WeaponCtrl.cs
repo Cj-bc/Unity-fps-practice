@@ -46,7 +46,7 @@ public class WeaponCtrl : MonoBehaviour
             case GunType.Semi:
                 if(fired) return;
 
-                Instantiate(bullet, transform.position, Quaternion.identity);
+                Instantiate(bullet, transform.position, transform.rotation);
                 fired = true;
                 break;
             case GunType.Auto:
@@ -55,10 +55,12 @@ public class WeaponCtrl : MonoBehaviour
                     return;
                 }
 
-                Instantiate(bullet, transform.position, Quaternion.identity);
-
+                Instantiate(bullet, transform.position, transform.rotation);
                 fireIntervalRemain = fireInterbal;
                 break;
         }
+
+
+
     }
 }
