@@ -801,6 +801,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ac255de1d8b4e438eb5add767ccdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1809899824 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1490862760676177941, guid: 87fb5bb241ede479ba04da1f35523e25,
+    type: 3}
+  m_PrefabInstance: {fileID: 1096931504}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1870679837 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 7f92b9c09e62943d08d9ebac56799ea0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1208120872}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1870679839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870679837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a3584f55eea437dbbd80635d169c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  fireInterbal: 0.1
+  ammos: 10
+  guntype: 0
+  offset: {x: 0.000003756475, y: 0.002194915, z: 0.001823948}
+  bullet: {fileID: 0}
 --- !u!1 &1921135787
 GameObject:
   m_ObjectHideFlags: 0
