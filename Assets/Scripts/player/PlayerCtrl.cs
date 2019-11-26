@@ -56,7 +56,8 @@ public class PlayerCtrl : MonoBehaviour
 
         if (Input.GetKey(keyConf[Config.UsedKeysList.Fire]))
             if (!status.isFiring) status.isFiring = true;
-        else if (status.isFiring)
+
+        if (Input.GetKeyUp(keyConf[Config.UsedKeysList.Fire]) && status.isFiring)
             status.isFiring = false;
     }
 
