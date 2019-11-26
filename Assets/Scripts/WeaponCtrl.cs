@@ -7,7 +7,7 @@ public class WeaponCtrl : MonoBehaviour
 {
     const int MAX_Ammo = 10;
     public int damage = 0;
-    public float fireRate = 10.0f;
+    public float fireInterbal = 0.1f; // sec
     public int ammos = MAX_Ammo;
     public GunType guntype;
     public Vector3 offset;
