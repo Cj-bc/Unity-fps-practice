@@ -16,6 +16,11 @@ namespace Types {
           Toggle
         , Hold
     }
+
+    public enum GunType {
+          Auto
+        , Semi
+    }
 }
 
 

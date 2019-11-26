@@ -8,6 +8,7 @@ public class PlayerStatus : MonoBehaviour
     public bool crouch = false;
     public bool isADS = false;
     public bool isFiring = false;
+    public WeaponCtrl primary;
     public Vector3 velocity = new Vector3();
     public int health = MAX_health;
 
